@@ -1,0 +1,17 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "This is a hello-world project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hello-world",
+    "project"
+  ],
+  "author": "Claire Angom",
+  "license": "ISC"
+}
+
+//helps us to see what llibraries have been installed in the file

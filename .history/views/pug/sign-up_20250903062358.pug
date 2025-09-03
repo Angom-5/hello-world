@@ -1,0 +1,50 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Sign Up
+  link(rel='stylesheet' href='/bootstrap.css/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/css/sign-up.css')
+.container
+  h1.lead.text-center SIGN UP!
+  .row
+    .col
+      form(action='/sign-up' method='post')
+        // First Name
+        .row.mb-3
+          label.col-sm-2.col-form-label(for='firstName') First Name
+          .col-sm-10
+            input#firstName.form-control(type='text' placeholder='Enter your first name')
+        // Last Name
+        .row.mb-3
+          label.col-sm-2.col-form-label(for='lastName') Last Name
+          .col-sm-10
+            input#lastName.form-control(type='text' placeholder='Enter your last name')
+        // Telephone
+        .row.mb-3
+          label.col-sm-2.col-form-label(for='telephone') Telephone
+          .col-sm-10
+            input#telephone.form-control(type='tel' placeholder='e.g. +256 700 123456')
+        // Gender Dropdown
+        .row.mb-3
+          label.col-sm-2.col-form-label(for='gender') Gender
+          .col-sm-10
+            select#gender.form-select
+              option(selected='' disabled='') Choose...
+              option(value='male') Male
+              option(value='female') Female
+              option(value='other') Other
+        // Email
+        .row.mb-3
+          label.col-sm-2.col-form-label(for='inputEmail3') Email
+          .col-sm-10
+            input#inputEmail3.form-control(type='email' placeholder='Enter your email')
+        // Password
+        .row.mb-3
+          label.col-sm-2.col-form-label(for='inputPassword3') Password
+          .col-sm-10
+            input#inputPassword3.form-control(type='password' placeholder='Enter your password')
+        // Submit Button
+        button.btn.btn-primary(type='submit') Sign Up
+script(src='/bootstrap.js/js/bootstrap.bundle.js')
+script(src='/public/js/sign-up.js')

@@ -1,0 +1,21 @@
+/* Light blue background */
+body {
+  background-color: lightblue;
+}
+
+/* Style for the H1 */
+h1 {
+  font-weight: bold;
+  font-size: calc(1.25rem + 2px); /* Bootstrap's .lead is smaller, so we bump it up by 2px */
+}
+
+/* Button hover effect */
+button.btn {
+  transition: all 0.3s ease; /* smooth animation */
+}
+
+button.btn:hover {
+  transform: scale(1.1);   /* make button bigger */
+  background-color: #007FFF; /* azule color */
+  border-color: #007FFF;   /* match border with background */
+}
