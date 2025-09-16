@@ -1,0 +1,16 @@
+nav#sidebar.bg-muted
+  ul.nav.flex-column.px-3
+    li.nav-item
+      a.nav-link.text-light(href='#') Invoices
+    li.nav-item
+      a.nav-link.text-light(href='#') Orders
+    li.nav-item.dropdown
+      a#reportsDropdown.nav-link.dropdown-toggle.text-light(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+        | Reports
+      ul.dropdown-menu(aria-labelledby='reportsDropdown')
+        li
+          a.dropdown-item(href='#') Weekly
+        li
+          a.dropdown-item(href='#') Monthly
+
+body 

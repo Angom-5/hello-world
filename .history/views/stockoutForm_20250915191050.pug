@@ -1,0 +1,59 @@
+
+.card.mb-3.justify-content-centre(style='max-width: 1090px; background-color: antiquewhite;' method='post')
+  .row.g-0
+    .col-lg-4
+      img.img-fluid.rounded-start(src='/image-1.jpg')
+    .col-lg-8
+      .card-body
+        h5.card-title.display STOCK INPUT
+        .row.g-3.align-items-center
+          .col-3
+            label.col-form-label(for='productName') Product Name
+          .col-9
+            input#pdtName.form-control(type='text' name='pdtName')
+          .col-3
+            label.col-form-label(for='describe') Description
+          .col-9
+            input#describe.form-control(type='text' name='pdtDescription')
+          .col-3
+            label.col-form-label(for='quantity' ) Quantity
+          .col-9
+            input#qnty.form-control(type='text' name='quantity' value=`${item.quantity}`)
+          .col-3
+            label.col-form-label(for='costPrice') Cost Price
+          .col-9
+            input#costPrice.form-control(type='number' name='costPrice' value=`${item.costPrice}`)
+          .col-3
+            label.col-form-label(for='productPrice') Product Price
+          .col-9
+            input#pdtPrice.form-control(type='text' name='pdtPrice' value=`${item.pdtPrice}`)
+          .col-3
+            label.col-form-label(for='supplier') Supplier
+          .col-9
+            input#supplier.form-control(type='text' name='supplier' value=`${item.supplier}`)
+          .col-3
+            label.col-form-label(for='date') Date
+          .col-9
+            input#date.form-control(type='datetime-local' name='outDate' value=`${item.outDate}`)
+          .col-3
+            label.col-form-label(for='quality') Quality
+          .col-9
+            input#qlty.form-control(type='text' name='quality' value=`${item.quality}`)
+          .col-3
+            label.col-form-label(for='color') Color
+            .form-check
+              input#flexCheckDefault.form-check-input(type='checkbox' name='color' value=`${item.color}`)
+              label.form-check-label(for='flexCheckDefault')
+                | Blue
+            .form-check
+              input#flexCheckChecked.form-check-input(type='checkbox')
+              label.form-check-label(for='flexCheckChecked')
+                | Red
+            .form-check
+              input#flexCheckChecked.form-check-input(type='checkbox')
+              label.form-check-label(for='flexCheckChecked')
+                | Green
+          button.btn.btn-primary(type='submit') Submit
+          p.card-text
+            small.text-muted Home for all your comforts
+script(src='/server.js')

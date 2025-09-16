@@ -1,0 +1,29 @@
+
+.container
+  h1.lead.text-center LOGIN!
+  .row
+    .col
+      form(action='/login' method='post')
+        // First Name
+        .row.mb-3
+          label.col-sm-2.col-form-label(for='firstName') First Name
+          .col-sm-10
+            input#firstName.form-control(type='text' placeholder='Enter your first name' name='firstName')
+        // Last Name
+        .row.mb-3
+          label.col-sm-2.col-form-label(for='lastName') Last Name
+          .col-sm-10
+            input#lastName.form-control(type='text' placeholder='Enter your last name' name='lastName')
+            // Email
+        .row.mb-3
+          label.col-sm-2.col-form-label(for='inputEmail3') Email
+          .col-sm-10
+            input#inputEmail3.form-control(type='email' placeholder='Enter your email' name='email')
+        // Password
+        .row.mb-3
+          label.col-sm-2.col-form-label(for='inputPassword3') Password
+          .col-sm-10
+            input#inputPassword3.form-control(type='password' placeholder='Enter your password' name='password')
+        // Submit Button
+        button.btn.btn-primary(type='submit') Sign Up
+script(src='/public/js/sign-up.js') 

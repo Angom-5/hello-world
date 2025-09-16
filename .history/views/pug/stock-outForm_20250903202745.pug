@@ -1,0 +1,68 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Stock Form
+  link(rel='stylesheet' href='/bootstrap.css/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/public/css/file-2.css')
+.card.mb-3.justify-content-centre(style='max-width: 1090px; background-color: antiquewhite;' action='/stockForm' method='post')
+  // action holds the file path which is connected to your get route while action has the post and it's put in the parent thing which wraps all your content
+  // your collection point should have a name and type
+  .row.g-0
+    .col-lg-4
+      img.img-fluid.rounded-start(src='/image-1.jpg')
+    .col-lg-8
+      .card-body
+        h5.card-title.display STOCK INPUT
+        .row.g-3.align-items-center
+          .col-3
+            label.col-form-label(for='productName') Product Name
+          .col-9
+            input#pdtName.form-control(type='text' name='pdtName')
+          .col-3
+            label.col-form-label(for='describe') Description
+          .col-9
+            input#describe.form-control(type='text' name='pdtDescription')
+          .col-3
+            label.col-form-label(for='quantity') Quantity
+          .col-9
+            input#qnty.form-control(type='text' name='quantity')
+          .col-3
+            label.col-form-label(for='costPrice') Cost Price
+          .col-9
+            input#costPrice.form-control(type='number')
+          .col-3
+            label.col-form-label(for='productPrice') Product Price
+          .col-9
+            input#pdtPrice.form-control(type='text')
+          .col-3
+            label.col-form-label(for='supplier') Supplier
+          .col-9
+            input#supplier.form-control(type='text')
+          .col-3
+            label.col-form-label(for='date') Date
+          .col-9
+            input#date.form-control(type='datetime-local')
+          .col-3
+            label.col-form-label(for='quality') Quality
+          .col-9
+            input#qlty.form-control(type='text')
+          .col-3
+            label.col-form-label(for='color') Color
+            .form-check
+              input#flexCheckDefault.form-check-input(type='checkbox' value='')
+              label.form-check-label(for='flexCheckDefault')
+                | Blue
+            .form-check
+              input#flexCheckChecked.form-check-input(type='checkbox' value='' checked='')
+              label.form-check-label(for='flexCheckChecked')
+                | Red
+            .form-check
+              input#flexCheckChecked.form-check-input(type='checkbox' value='' checked='')
+              label.form-check-label(for='flexCheckChecked')
+                | Green
+          button.btn.btn-primary(type='submit') Submit
+          p.card-text
+            small.text-muted Home for all your comforts
+script(src='')
+script(src='/server.js')

@@ -1,0 +1,12 @@
+.col-8
+  form#dateForm.d-flex.align-items-center.gap-2
+    label.me-2.fw-bold(for='currentDate') Current Date:
+    input#currentDate.form-control.form-control-sm.w-auto(type='date' name='currentDate')
+    button#dateBtn.btn.btn-sm.btn-outline-secondary.border-2(type='button' onclick='updateDate()')
+      | Update Date
+// Right side: Forms button
+.col-4.text-end
+  a.btn.btn-primary.btn-lg(href='#') Forms
+// Hover trigger
+#hover-zone
+

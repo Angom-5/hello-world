@@ -1,0 +1,41 @@
+
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  link(rel='stylesheet' href='/bootstrap.css/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/attendants/stock/stockin.css')
+  .container
+    h3.mb-3 Products
+    table.table.table-striped.table-bordered.text-center.align-middle
+      thead.table-light
+        tr
+          th(scope='col') Product Name
+          th(scope='col') Product Type
+          th(scope='col') Cost Price
+          th(scope='col') Quantity
+          th(scope='col') Supplier Name
+          th(scope='col') Supplier Location
+          th(scope='col') Quality
+          th(scope='col') Color
+          th(scope='col') Generated Barcode
+      tbody
+        if items.length 
+         each item in items
+          tr 
+          td #{item}
+          td #{} 
+          td #{} 
+          td #{} 
+          td #{} 
+          td #{} 
+          td #{} 
+          td #{} 
+          td #{} 
+
+
+  button#additionBtn.btn.btn-lg.btn-outline-secondary.position-fixed.bottom-0.end-0.m-4.d-flex.justify-content-center.align-items-center(style='border-radius: 50%; width: 60px; height: 60px')
+    | &#x2795;
+  script(src='/bootstrap.js/js/bootstrap.bundle.min.js')
+  script(src='/attendants/stock/stockin.js')

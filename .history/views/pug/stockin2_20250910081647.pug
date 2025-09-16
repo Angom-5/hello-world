@@ -1,0 +1,65 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  link(rel='stylesheet' href='/bootstrap.css/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/attendants/stock/stockin.css')
+.container.mt-5
+  // Logo Section
+  section.text-center.my-3
+    img#logoImage(src='/attendants/images/image1.png' width='200' alt='logo image')
+  // Navbar
+  nav.navbar.navbar-light.bg-light.fixed-top.shadow-sm
+    .container-fluid
+      span.navbar-text.fw-bold User Name: John Doe
+      span.navbar-text.ms-auto Title: Manager
+.container.mt-4
+  .row.align-items-center
+    // Left side: Date form
+    .col-8
+      form#dateForm.d-flex.align-items-center.gap-2
+        label.me-2.fw-bold(for='currentDate') Current Date:
+        input#currentDate.form-control.form-control-sm.w-auto(type='date' name='currentDate')
+        button#dateBtn.btn.btn-sm.btn-outline-secondary.border-2(type='button' onclick='updateDate()')
+          | Update Date
+    // Right side: Forms button
+    .col-4.text-end
+      a.btn.btn-primary.btn-lg(href='#') Forms
+// Hover trigger
+#hover-zone
+// Sidebar Navbar
+nav#sidebar.bg-muted
+  ul.nav.flex-column.px-3
+    li.nav-item
+      a.nav-link.text-light(href='#') Invoices
+    li.nav-item
+      a.nav-link.text-light(href='#') Orders
+    li.nav-item.dropdown
+      a#reportsDropdown.nav-link.dropdown-toggle.text-light(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+        | Reports
+      ul.dropdown-menu(aria-labelledby='reportsDropdown')
+        li
+          a.dropdown-item(href='#') Weekly
+        li
+          a.dropdown-item(href='#') Monthly
+.container
+  h3.mb-3 Products
+  table.table.table-striped.table-bordered.text-center.align-middle
+    thead.table-light
+      tr
+        th(scope='col') Product Name
+        th(scope='col') Product Type
+        th(scope='col') Cost Price
+        th(scope='col') Quantity
+        th(scope='col') Supplier Name
+        th(scope='col') Supplier Location
+        th(scope='col') Quality
+        th(scope='col') Color
+        th(scope='col') Generated Barcode
+    tbody
+      // Rows will go here later
+button#additionBtn.btn.btn-lg.btn-outline-secondary.position-fixed.bottom-0.end-0.m-4.d-flex.justify-content-center.align-items-center(style='border-radius: 50%; width: 60px; height: 60px')
+  | &#x2795;
+script(src='/bootstrap.js/js/bootstrap.bundle.min.js')
+script(src='/attendants/stock/stockin.js')
