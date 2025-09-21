@@ -1,0 +1,67 @@
+.container
+      .card.shadow.p-4.rounded-3
+        h2.mb-4.text-center Stock Entry Form
+        form
+          .mb-3
+            label.form-label(for="productName") Product Name
+            select#productName.form-select(name="productName", required)
+              option(value="") --Select--
+              option(value="chair") Chair
+              option(value="table") Table
+              option(value="sofa") Sofa
+              option(value="cupboard") Cupboard
+              option(value="bed") Bed
+              option(value="drawers") Drawers
+              option(value="home_office_furniture") Home & Office Furniture
+              option(value="poles") Poles
+              option(value="timber") Timber
+
+          .mb-3
+            label.form-label(for="productType") Product Type
+            select#productType.form-select(name="productType", required)
+              option(value="") --Select--
+              option(value="african_blackwood") African Blackwood
+              option(value="african_mahogany") African Mahogany
+              option(value="eucalyptus") Eucalyptus
+              option(value="musizi") Musizi
+              option(value="mungavu") Mungavu
+
+          .mb-3
+            label.form-label(for="costPrice") Cost Price
+            input#costPrice.form-control(type="number", name="costPrice", required)
+
+          .mb-3
+            label.form-label(for="quantity") Quantity
+            input#quantity.form-control(type="number", name="quantity", required)
+
+          .mb-3
+            label.form-label(for="totalPrice") Total Price
+            input#totalPrice.form-control(type="number", name="totalPrice", readonly, required)
+
+          .mb-3
+            label.form-label(for="quality") Quality
+            select#quality.form-select(name="quality", required)
+              option(value="") --Select--
+              option(value="premium") Premium
+              option(value="high") High
+              option(value="medium") Medium
+
+          .mb-3
+            label.form-label(for="supplierName") Supplier Name
+            input#supplierName.form-control(type="text", name="supplierName", required)
+
+          .mb-3
+            label.form-label(for="supplierLocation") Supplier Location
+            input#supplierLocation.form-control(type="text", name="supplierLocation", required)
+
+          .mb-3
+            label.form-label(for="color") Color (Optional)
+            input#color.form-control(type="text", name="color")
+
+          .mb-3
+            label.form-label(for="measurements") Measurements (Optional)
+            input#measurements.form-control(type="text", name="measurements")
+
+          button.btn.btn-primary.w-100(type="submit") Submit
+
+   
