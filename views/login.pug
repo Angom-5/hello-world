@@ -1,18 +1,39 @@
 extends layout
 
 block content
-  .container
-    h1.lead.text-center LOGIN!
-    .row
-      .col
-        form(action='/login' method='post')
-          .row.mb-3
-            label.col-sm-2.col-form-label(for='inputEmail3') Email
-            .col-sm-10
-              input#inputEmail3.form-control(type='email' placeholder='Enter your email' name='email')
-          .row.mb-3
-            label.col-sm-2.col-form-label(for='inputPassword3') Password
-            .col-sm-10
-              input#inputPassword3.form-control(type='password' placeholder='Enter your password' name='password')
-          button.btn.btn-primary(type='submit') Login Up
-  script(src='/public/js/sign-up.js') 
+    .container.my-5
+        .row.justify-content-center
+        .col-md-6
+            .card.shadow-lg
+            .card-header.bg-dark.text-white.text-center
+                h3 Sign Up
+            .card-body
+                form(action='/' method='post')
+                .row
+                    .col-md-6.mb-3
+                    label.form-label(for="firstName") First Name
+                    input#firstName.form-control(type="text" name='fName' required)
+
+                    .mb-3
+                    label.form-label(for="role") Role
+                    select#role.form-select(required  name='role')
+                        option(value="") Choose...
+                        option Manager 
+                        option Member 
+                        option Attenda
+                        option Guest 
+
+
+                .mb-3
+                    label.form-label(for="email") Email
+                    input#email.form-control(type="email" required  name='email')
+
+                .mb-3
+                label.form-label(for="password") Password
+                input#password.form-control(type="password"  name='password' required)
+
+                .d-grid
+                button.btn.btn-dark(type="submit") Sign Up
+
+    footer.bg-dark.text-white.text-center.py-3.mt-5
+    p.mb-0 &copy; 2025 MySite | Home for all your comforts

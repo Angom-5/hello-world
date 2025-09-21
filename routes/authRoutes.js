@@ -1,50 +1,72 @@
-//will have that for login, sign-up
 const express = require("express");
 const router = express.Router();
+const {
+  ensureauthenticated,
+  ensureManager,
+  ensureAdministrator,
+} = require("../middleware/auth");
 
 const UserModel = require("../models/userModel");
 const passport = require("passport");
-//the .. means that the thing should get out of the authRoutes folder and instead enter the userModel file
+const userModel = require("../models/userModel");
 
-//getting the sign-up file
-router.get("/signup", (req, res) => {
-  //when using a template engine use render..it replaces a sendFile
-  res.render("signup", { title: "Sign-Up page" }); //this is the pug file with your html(obviously)
-}); //you can add the title of the tab by {title:"..."}
-
-router.post("/signup", async (req, res) => {
-  try {
-    const user = new UserModel(req.body);
-    console.log(req.body);
-    let existingUser = await UserModel.findOne({ email: req.body.email });
-    if (existingUser) {
-      return res.status(400).send("Already registered email!");
-    } else {
-      await UserModel.register(user, req.body.password, (error) => {
-        if (error) {
-          throw error;
-        }
-        res.redirect("/login"); //you specify the route path you want it to go into
-      });
-    };
-  
-    user.save();
-  } catch (error) {
-    res.status(400).send("Sorry something went wrong!")
-  }
+//home route
+router.get("/", (req, res) => {
+  res.render("index", { title: "Home" });
 });
-//collects whatever is written in the form
+
+//sign-in route
+router.get("/sign-in", (req, res) => {
+  res.render("signin");
+});
 
 //login route
 router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.post("/login", passport.authenticate("local", {failureRedirect:'/login'}), (req, res) => {
-  req.session.user = req.user;  //names the sucessfully loginned person to becalled req.user
-  console.log(req.body);
-  res.redirect("/stock");
+//adding to the database
+router.post("/sign-in", async (req, res) => {
+  try {
+    const user = new userModel(req.body);
+    console.log(req.body);
+    let existingUser = await UserModel.findOne({ email: req.body.email });
+    if (existingUser) {
+      return res.status(400).send("Already registered email!");
+    } else {
+      await userModel.register(user, req.body.password, (error) => {
+        if (error) {
+          throw error;
+        }
+        res.redirect("/login");
+      });
+    }
+    user.save();
+  } catch (error) {
+    res.status(400).send("Sorry something went wrong!");
+  }
 });
+
+
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    failureRedirect: "/login",
+  }),
+  (req, res) => {
+    req.session.user = req.user;
+    let role = req.user.role;
+    if (role === "Attendant") {
+      res.redirect("/attendant");
+    } else if (role === "Manager") {
+      res.redirect("/manager");
+    } else if (role === "Member") {
+      res.redirect("/");
+    } else {
+      res.redirect("/login");
+    }
+  }
+);
 
 //logout route
 router.get("/logout", (req, res) => {
@@ -58,14 +80,34 @@ router.get("/logout", (req, res) => {
   }
 });
 
-router.post('/logout', (req, res) => {
+
+router.post("/logout", (req, res) => {
   req.logout((error) => {
-    if(error) {
-      return res.status(500).send("Error logging out!")
+    if (error) {
+      return res.status(500).send("Error logging out!");
     }
-    res.redirect('/');
-  })
+    res.redirect("/");
+  });
 });
 
+//create a list of users
+router.post("/sign-in", async (req, res) => {
+  try {
+    let users = await userModel.find().sort({ $natural: -1 });
+    res.render("usertable", { users });
+  } catch (error) {
+    res.status(400).send("Sorry something went wrong!");
+  }
+});
+
+//delete route
+router.delete('/deleteUser/:id', async (req, res) => {
+  try {
+    await userModel.deleteOne({ _id: req.body.id });
+    res.redirect('/sign-in');
+  } catch (error) {
+    res.status(400).send("Unable to delete user!");
+  }
+})
 
 module.exports = router;

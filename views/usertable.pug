@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    h3.mb-3 Users
+    .table-responsive.mt-5
+    table.table.table-bordered.table-striped
+        thead.table-dark
+        tr
+            th(scope='col') First Name
+            th(scope='col') Last Name
+            th(scope='col') Telephone
+            th(scope='col') Email
+            th(scope='col') Action
+
+
+        tbody
+        if users.length
+            each user in users 
+                tr 
+                    td #{user.fName}
+                    td #{user.lName}
+                    td #{user.telephone}
+                    td #{user.email}
+                    td 
+                     form(method="post" action="/deleteUser")
+                        input(type="hidden" name='id' value=user._id)
+                        button.btn.btn-danger.btn-block(type='submit') Delete
+
+

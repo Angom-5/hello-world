@@ -2,19 +2,19 @@ const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const signupSchema = new mongoose.Schema({
-  firstName: {
+  fName: {
     type: String,
     required: true,
   },
-  lastName: {
+  lName: {
     type: String,
     required: true,
+  },
+  role: {
+    type: String,
+    required: true
   },
   telephone: {
-    type: String,
-    required: true,
-  },
-  gender: {
     type: String,
     required: true,
   },
@@ -24,10 +24,10 @@ const signupSchema = new mongoose.Schema({
     unique: true,
     trim: true,
   },
-  password: {
+   password: {
     type: String,
-    required: true,
-  },
+    required: true
+  }
 });
 
 

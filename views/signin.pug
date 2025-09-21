@@ -1,0 +1,62 @@
+extends layout
+
+block content
+    .container.my-5
+        .row.justify-content-center
+            .col-md-6
+                .card.shadow-lg
+                .card-header.bg-dark.text-white.text-center
+                    h3 Login
+                .card-body
+                    form(action='/sign-in' method='post')
+                    .row
+                        .col-md-6.mb-3
+                        label.form-label(for="firstName") First Name
+                        input#firstName.form-control(type="text" name='fName' required)
+                        .col-md-6.mb-3
+                        label.form-label(for="lastName") Last Name
+                        input#lastName.form-control(type="text" name='lName' required)
+
+                    .mb-3
+                        label.form-label(for="nationality") Nationality
+                        input#nationality.form-control(type="text" name='nationality' required)
+
+                    .mb-3
+                        label.form-label(for="telephone") Telephone
+                        input#telephone.form-control(type="tel" name='telephone' required)
+
+                    .mb-3
+                        label.form-label(for="dob") Date of Birth
+                        input#dob.form-control(type="date"  name='date' required)
+
+                    .mb-3
+                        label.form-label(for="gender") Gender
+                        select#gender.form-select(required name='gender')
+                        option(value="" ) Choose...
+                        option Male
+                        option Female
+                        option Other
+
+                    .mb-3
+                        label.form-label(for="role") Role
+                        select#role.form-select(required  name='role')
+                        option(value="") Choose...
+                        option Manager
+                        option Member
+                        option Attendant
+                        option Guest 
+
+
+                    .mb-3
+                        label.form-label(for="email") Email
+                        input#email.form-control(type="email" required  name='email')
+
+                    .mb-3
+                        label.form-label(for="password") Password
+                        input#password.form-control(type="password"  name='password' required)
+
+                    .d-grid
+                        button.btn.btn-dark(type="submit") Login
+
+            footer.bg-dark.text-white.text-center.py-3.mt-5
+            p.mb-0 &copy; 2025 MySite | Home for all your comforts
