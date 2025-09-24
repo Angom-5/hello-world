@@ -6,30 +6,24 @@ const {
   ensureAdministrator,
 } = require("../middleware/auth");
 
-const UserModel = require("../models/userModel");
 const passport = require("passport");
 const userModel = require("../models/userModel");
 
-//home route
+//landing page route
 router.get("/", (req, res) => {
-  res.render("index", { title: "Home" });
+  res.render("index", { title: "Landing Page" });
 });
 
-//sign-in route
-router.get("/sign-in", (req, res) => {
-  res.render("signin");
-});
-
-//login route
-router.get("/login", (req, res) => {
-  res.render("login");
+//sign-up/register route
+router.get("/sign-up", (req, res) => {
+  res.render("signup");
 });
 
 //adding to the database
-router.post("/sign-in", async (req, res) => {
+router.post("/sign-up", async (req, res) => {
   try {
     const user = new userModel(req.body);
-    console.log(req.body);
+    // console.log(req.body);
     let existingUser = await UserModel.findOne({ email: req.body.email });
     if (existingUser) {
       return res.status(400).send("Already registered email!");
@@ -38,14 +32,20 @@ router.post("/sign-in", async (req, res) => {
         if (error) {
           throw error;
         }
+         user.save();
         res.redirect("/login");
       });
     }
-    user.save();
   } catch (error) {
     res.status(400).send("Sorry something went wrong!");
   }
 });
+
+//sign-in/login route
+router.get("/login", (req, res) => {
+  res.render("login");
+});
+
 
 
 router.post(
