@@ -1,0 +1,68 @@
+     //navbar
+    div.sidebar#sidebar
+      h4.mb-4 Menu
+      div.accordion#menuAccordion
+    
+        div.accordion-item.bg-dark.border-0
+          h2.accordion-header
+            button.accordion-button.collapsed.bg-dark.text-white(type="button" data-bs-toggle="collapse" data-bs-target="#salesCollapse") Sales
+          div#salesCollapse.accordion-collapse.collapse(data-bs-parent="#menuAccordion")
+            div.accordion-body.bg-secondary
+              a(href="#") Form
+              br
+              a(href="#") Table
+
+        div.accordion-item.bg-dark.border-0
+          h2.accordion-header
+            button.accordion-button.collapsed.bg-dark.text-white(type="button" data-bs-toggle="collapse" data-bs-target="#stockCollapse") Stock
+          div#stockCollapse.accordion-collapse.collapse(data-bs-parent="#menuAccordion")
+            div.accordion-body.bg-secondary
+              a(href="#") Form
+              br
+              a(href="#") Table
+
+    
+   .container.py-5
+      .row
+        // Picture, Name, and Title Card
+        .col-md-6
+          .card.shadow-lg.mb-4
+            .row.g-0.align-items-center
+              // Picture Upload
+              .col-md-4.text-center.p-3
+                label.form-label.fw-bold(for="uploadPic") Upload Picture
+                input.form-control(type="file" id="uploadPic" action='' method='' enctype='multipart/form-data')
+              // Name and Title Form
+              .col-md-8.p-3
+                form(action='/attendant' method='post')
+                  .mb-3
+                    label.form-label(for="attendantName") Name
+                    input.form-control(type="text" id="attendantName" placeholder="Enter your name" name="fName")
+                  .mb-3
+                    label.form-label(for="attendantTitle") Role 
+                    input.form-control(type="text" id="attendantTitle" placeholder="Enter your title" name="role")
+
+        // Task Input Area
+        .col-md-6
+          .card.shadow-lg.mb-4
+            .card-body
+              label.form-label.fw-bold(for="tasks") Today's Tasks
+              textarea.form-control#tasks(rows="6" placeholder="Write down tasks here...")
+
+      // Chat Box
+      .chat-box.mt-4
+        h3 Send Message
+        input.chat-input.form-control.mb-3(type="email" placeholder="Recipient's email")
+        input.chat-input.form-control.mb-3(type="text" placeholder="Subject (Re:)")
+        textarea.chat-textarea.form-control.mb-3(placeholder="Write your message...")
+        .chat-footer
+          input(type="file").form-control.mb-3
+          button.send-btn.btn.btn-primary Send
+
+      // Saying
+      .text-center.mt-4
+        h3.fw-bold.text-success We are grateful for your service, keep it up.
+
+      // Footer
+      footer.mt-4.text-center
+        p &copy; 2025 Your Company. All Rights Reserved.
