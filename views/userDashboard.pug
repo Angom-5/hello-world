@@ -1,0 +1,30 @@
+extends layout 
+
+block content
+    .sidebar
+        h4.mb-4 Menu
+        ul.nav.flex-column
+        li.nav-item: a.nav-link(href="/products") Products
+        li.nav-item: a.nav-link(href="/cart") Shopping Cart
+        li.nav-item: a.nav-link(href="/orders") Orders
+
+    .main
+        #carouselExample.carousel.slide.mb-5(data-bs-ride="carousel")
+        .carousel-inner
+            .carousel-item.active
+            img.d-block.w-100.rounded(src="img1.jpg" alt="...")
+            .carousel-item
+            img.d-block.w-100.rounded(src="img2.jpg" alt="...")
+            .carousel-item
+            img.d-block.w-100.rounded(src="img3.jpg" alt="...")
+        button.carousel-control-prev(type="button" data-bs-target="#carouselExample" data-bs-slide="prev")
+            span.carousel-control-prev-icon
+        button.carousel-control-next(type="button" data-bs-target="#carouselExample" data-bs-slide="next")
+            span.carousel-control-next-icon
+
+    .row.g-4
+        each card in ["BEDS", "SOFAS", "CUPBOARDS", "HOME & OFFICE FURNITURE", "DINING TABLES", "DRAWERS"]
+            .col-md-4
+                a.card-link(href="/" + card.toLowerCase().replace(/ /g, "-").replace(/&/g, "and"))
+                    .card.text-center.p-3.shadow-sm
+                        h5= card 
