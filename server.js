@@ -12,7 +12,8 @@ const UserModel = require("./models/userModel");
 
 //import route
 const authRoutes = require("./routes/authRoutes");
-const stockRoute = require("./routes/stockRoute");
+const stockRoutes = require("./routes/stockRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 //2. INSTANTIATIONS
 const app = express();
@@ -39,6 +40,9 @@ app.set("views", path.join(__dirname, "views"));
 //4. MIDDLEWARE
 //this is for static files
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json());
+
+app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 
 //this is for the pug files
 app.use(express.urlencoded({ extended: true }));
@@ -73,7 +77,8 @@ passport.deserializeUser(UserModel.deserializeUser());
 
 //using imported routes
 app.use("/", authRoutes);
-app.use("/", stockRoute);
+app.use("/stock", stockRoutes);
+app.use('/dashboard', dashboardRoutes);
 
 app.use((req, res) => {
   res.status(404).send("Oops! Route not found.");
