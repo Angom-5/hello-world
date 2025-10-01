@@ -1,0 +1,39 @@
+    // Sidebar
+    .sidebar#sidebar
+      h3 Menu
+      .dropdown#dropdown
+        a(href="javascript:void(0)") Reports ▼
+        .dropdown-content
+          a(href="#") Sales
+          a(href="#") Stock
+      a(href="#") Workers
+      a(href="#") Users
+
+    // Main content
+    .main
+      .container
+        .card
+          img(src="https://via.placeholder.com/100" alt="Worker")
+          p 
+            strong Worker Picture
+        .form
+          h3 Worker Details
+          label Name
+          input(type="text" placeholder="Enter name")
+          label Role
+          input(type="text" placeholder="Enter role")
+      .tasks
+        h3 Today's Tasks
+        textarea(placeholder="Write your tasks for today...")
+
+    // Footer
+    footer
+      h3 We're very grateful for your service
+      .chatbox
+        label(for="receiver") Send message to:
+        select#receiver
+          option Manager
+          option Worker
+          option HR
+        input(type="text" placeholder="Type your message...")
+        button Send
