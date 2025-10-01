@@ -1,13 +1,3 @@
-function updateFullName() {
-  const firstName = document.getElementById("firstName").value;
-  const secondName = document.getElementById("secondName").value;
-  document.getElementById("fullName").value = firstName + " " + secondName;
-}
-
-// Attach event listeners so it updates as the user types
-document.getElementById("firstName").addEventListener("input", updateFullName);
-document.getElementById("secondName").addEventListener("input", updateFullName);
-
 // Email validation
 document.getElementById("email").addEventListener("input", function () {
   const email = this.value;
