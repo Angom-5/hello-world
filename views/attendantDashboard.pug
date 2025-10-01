@@ -33,14 +33,14 @@
                 label.form-label.fw-bold(for="uploadPic") Upload Picture
                 input.form-control(type="file" id="uploadPic" action='' method='' enctype='multipart/form-data')
               // Name and Title Form
-              .col-md-8.p-3
-                form(action='/attendant' method='post')
-                  .mb-3
-                    label.form-label(for="attendantName") Name
-                    input.form-control(type="text" id="attendantName" placeholder="Enter your name" name="fName")
-                  .mb-3
-                    label.form-label(for="attendantTitle") Role 
-                    input.form-control(type="text" id="attendantTitle" placeholder="Enter your title" name="role")
+              //- .col-md-8.p-3
+              //-   form(action='/attendant' method='post')
+              //-     .mb-3
+              //-       label.form-label(for="attendantName") Name
+              //-       input.form-control(type="text" id="attendantName" placeholder="Enter your name" name="fName")
+              //-     .mb-3
+              //-       label.form-label(for="attendantTitle") Role 
+              //-       input.form-control(type="text" id="attendantTitle" placeholder="Enter your title" name="role")
 
         // Task Input Area
         .col-md-6
@@ -50,7 +50,8 @@
               textarea.form-control#tasks(rows="6" placeholder="Write down tasks here...")
 
       // Chat Box
-      .chat-box.mt-4
+      .chat-box.mt-
+
         h3 Send Message
         input.chat-input.form-control.mb-3(type="email" placeholder="Recipient's email")
         input.chat-input.form-control.mb-3(type="text" placeholder="Subject (Re:)")
