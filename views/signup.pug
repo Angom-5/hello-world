@@ -18,6 +18,10 @@ block content
                         input#lastName.form-control(type="text" name='lName' required)
 
                     .mb-3
+                        label.form-label(for="fullName") Full Name
+                        input#fullName.form-control(type="text" name='fullName' required)
+
+                    .mb-3
                         label.form-label(for="nationality") Nationality
                         input#nationality.form-control(type="text" name='nationality' required)
 
@@ -43,9 +47,7 @@ block content
                         option(value="") Choose...
                         option Manager
                         option Member
-                        option Attendant
-                        option Guest 
-
+                        option Attendant 
 
                     .mb-3
                         label.form-label(for="email") Email
