@@ -77,7 +77,7 @@ passport.deserializeUser(UserModel.deserializeUser());
 
 //using imported routes
 app.use("/", authRoutes);
-app.use("/stock", stockRoutes);
+// app.use("/stock", stockRoutes);
 app.use('/dashboard', dashboardRoutes);
 
 app.use((req, res) => {
