@@ -10,6 +10,13 @@ const signupSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  fullName: {
+  type: String,
+    required: true,
+    default: function () {
+      return `${this.fName} ${this.lName}`;
+    }
+  },
   role: {
     type: String,
     required: true
